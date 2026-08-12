@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+
+html, body, #root { height: 100%; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: #FFF7E8;
+  background:
+    radial-gradient(1200px 600px at 50% -10%, rgba(31,182,214,.28), transparent 60%),
+    radial-gradient(900px 500px at 90% 10%, rgba(247,183,51,.18), transparent 55%),
+    linear-gradient(180deg, #0B1F3A 0%, #0E274A 60%, #0B1F3A 100%);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* soleil qui scintille sur les titres reveles */
+.text-shimmer {
+  background: linear-gradient(90deg, #FFD166, #FFF7E8, #F7B733, #FFD166);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* petite ligne d'horizon / palmiers en silhouette (decoratif, pur CSS) */
+.horizon::after {
+  content: "";
+  position: absolute; left: 0; right: 0; bottom: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255,209,102,.6), transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+/* zone safe iphone (notch) */
+.pb-safe { padding-bottom: calc(env(safe-area-inset-bottom) + 4.75rem); }
+.nav-safe { padding-bottom: env(safe-area-inset-bottom); }
